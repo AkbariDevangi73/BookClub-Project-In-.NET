@@ -1,0 +1,288 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="img/book.jpg" />
+	<title>BOOKCLUB</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+    <%--<script type="text/javascript">
+                function noBack() { window.history.forward(); }
+                noBack();
+                window.onload = noBack;
+                window.onpageshow = function (evt) { if (evt.persisted) noBack(); }
+                window.onunload = function () { void (0); }
+</script>--%>
+   
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>  
+<div id="google_translate_element"></div>
+            <asp:Label ID="Label1" runat="server" Text="Label" ForeColor="#0000cc" Font-Bold="true" style="margin-left:20px" Font-Size="Larger"></asp:Label>
+        <div class="colorlib-loader"></div>
+
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row" style="font-style:italic; font-size:medium;" >
+                        <%--<asp:Label ID="Label1" runat="server" Text="Label" ForeColor="#0000cc" Font-Bold="true" style="margin-right:-100px"></asp:Label>--%>
+						<div class="col-xs-2">
+							<div id="colorlib-logo"><a href="Default.aspx" style="color:gold; font-size:25px;  text-shadow: 2px 2px #FF0000;"> <img src="img/book.jpg" height="35px" width="35px"; /><div style="margin-left:35px; margin-top:-38px">BOOKCLUB</div></a></div>
+
+                       </div>
+						<div class="col-xs-10 text-right menu-1">
+							<ul>
+								<li class="active"><a href="Default.aspx">Home</a></li>
+							<%--	<li class="has-dropdown">
+									<a href="#">Shop</a>
+									<ul class="dropdown">
+										<li><a href="ucategroy.aspx">Category</a></li>
+										<li><a href="cart.html">Shipping Cart</a></li>
+										<li><a href="checkout.html">Checkout</a></li>
+										<li><a href="order-complete.html">Order Complete</a></li>
+										<li><a href="add-to-wishlist.html">Wishlist</a></li>
+									</ul>
+								</li>--%>
+                                <li><a href="offer.aspx">Offer</a></li>
+                                <li><a href="ucategroy.aspx">Category</a></li>
+								<li><a href="contact.aspx">FeedBack</a></li>
+                               
+                                <% if (Session["user"] == null)
+                                    {
+                                     %>
+								<li><a href="register.aspx">Register</a></li>
+                                <%
+                                    }
+
+                                     %>
+								
+                               <li><asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/login.aspx" CausesValidation="False">Login</asp:LinkButton>
+                                   <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/logout.aspx" CausesValidation="False">Logout</asp:LinkButton> 
+
+                               </li> 
+
+								<li><a href="cart.aspx"><i class="icon-shopping-cart"></i> Cart[<asp:Literal ID="Literal1" runat="server" Text="0"></asp:Literal>] </a></li>
+                               <li class="has-dropdown">
+                                   <%--<a href="#"><i class="fa fa-cog" aria-hidden="true" ></i></a>--%>
+									<img src="img/setting.png" width="20px" height="20px" />
+                                         
+                                         <ul class="dropdown">
+										<li><a href="reset.aspx">Reset Password</a></li>
+										
+										
+									</ul>
+								</li>
+                              <li><a href="wishlist.aspx"><img src="img/wishlist.png" width="20px" height="20px" /><span style="position:absolute; top:20px; left:100%; height:16px; min-width:16px; color:black; font-size:13px; background-color:#FFC300 ; text-align:center; border-radius:40px; padding:0.2px; margin-left:-18px;"><asp:Literal ID="Literal2" runat="server" Text="0"></asp:Literal></span></a></li>
+                             
+							</ul>
+                           
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+        
+		<aside id="colorlib-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(img/back.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
+				   				<div class="slider-text-inner">
+				   					<div class="desc">
+					   					<h1 class="head-1">BOOK</h1>
+                                           <h1 class="head-1">CLUB</h1>
+					   					<p class="category"><span>WelCome To Our Site...</span></p>
+				   					</div>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	<li style="background-image: url(img/backG.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
+				   				<div class="slider-text-inner">
+				   					<div class="desc">
+					   					<h1 class="head-1">BOOK's</h1>
+					   					<h1 class="head-2">COLLECTION</h1>
+                                           <h1 class="head-3">OFFER...</h1>
+				   					</div>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	<li style="background-image: url(img/bca.jpg);">
+			   		<div class="overlay"></div>
+			   		<%--<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 col-md-push-3 col-sm-12 col-xs-12 slider-text">
+				   				<div class="slider-text-inner">
+				   					<div class="desc">
+					   					<h1 class="head-1">New</h1>
+					   					<h2 class="head-2">Arrival</h2>
+					   					<h2 class="head-3">up to 30% off</h2>
+					   					<p class="category"><span>New stylish shirts, pants &amp; Accessories</span></p>
+					   					<p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+				   					</div>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>--%>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder3" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder4" runat="server">
+
+           <div id="colorlib-subscribe">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="col-md-6 text-center">
+							<h2><i class="icon-paperplane"></i>Sign Up for a Newsletter</h2>
+						</div>
+						<div class="col-md-6">
+							<form class="form-inline qbstp-header-subscribe">
+								<div class="row">
+									<div class="col-md-12 col-md-offset-0">
+										<div class="form-group">
+											<input type="text" class="form-control" id="email" placeholder="bookclubshopping@gmail.com">
+											
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        <footer id="colorlib-footer" role="contentinfo">
+			<div class="container">
+		
+			<div class="copy">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<p>
+							
+							<span class="block"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a href="#" target="_blank">Paghadal Denisha,Akbari Devangi</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span> 
+						<%--	<span class="block"><a href="#" target="_blank"></a><a href="#" target="_blank"></a></span>--%>
+						</p>
+					</div>
+				</div>
+			</div>
+           <%-- <audio src="img/lakshya.mp3" controls="controls" 
+        aria-atomic="false" aria-hidden="True" autoplay="autoplay" aria-dropeffect="none"
+         hidden="hidden" />
+		</footer>--%>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Owl carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Date Picker -->
+	<script src="js/bootstrap-datepicker.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="js/jquery.stellar.min.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
+
